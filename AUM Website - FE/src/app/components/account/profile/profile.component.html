@@ -1,0 +1,94 @@
+<main>
+  <div class="container-xl px-4 mt-4">
+    <hr class="mt-0 mb-4">
+    <div class="row" *ngIf="userProfile">
+      <div class="col-xl-4">
+        <!-- Profile picture card-->
+        <div class="card mb-4 mb-xl-0">
+          <div class="card-header">Avatar</div>
+          <div class="card-body text-center" style="height: 325px;">
+            <!-- Profile picture image-->
+            <img id="images" style="border-radius: unset; width: 60%; height: 60%;"
+              class="img-account-profile rounded-circle mb-2" [src]="imageUrl" alt="Avata">
+            <!-- Profile picture help block-->
+            <!-- <div class="small font-italic text-muted mb-4">Minh Thai</div> -->
+            <!-- Profile picture upload button-->
+            <!-- <button class="btn btn-primary" type="button">Upload new image</button> -->
+            <input type="file" (change)="onFileSelected($event)" style="margin-top: 55px;">
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-8">
+        <!-- Account details card-->
+        <div class="card mb-4">
+          <div class="card-header">Detail</div>
+          <div class="card-body">
+            <form [formGroup]="profileForm">
+              <!-- Form Row-->
+              <div class="row gx-3 mb-3">
+                <div class="col-md-6">
+                  <label class="small mb-1" for="inputUsername">User Name</label>
+                  <input formControlName="user_username" class="form-control" id="user_username" type="text"
+                    style="color: black;">
+                  <small
+                    *ngIf="profileForm.controls['user_username'].dirty && profileForm.hasError('required', 'user_username')"
+                    class="text-danger">*Username is required</small>
+                </div>
+                <div class="col-md-6">
+                  <label class="small mb-1" for="inputOrgName">Email</label>
+                  <input formControlName="user_email" class="form-control" id="inputOrgName" type="text"
+                    style="color: black;">
+                  <small
+                    *ngIf="profileForm.controls['user_email'].dirty && profileForm.hasError('required', 'user_email')"
+                    class="text-danger">*Email is required</small>
+                </div>
+                <!-- <div class="col-md-6" style="margin-top: 2px;">
+                                    <label class="small mb-1" for="inputBirthday">BirthDay</label>
+                                    <input  formControlName="user_birthday" class="form-control" id="inputBirthday" type="date" name="birthday">
+                                    <small *ngIf="profileForm.controls['user_birthday'].dirty && profileForm.hasError('required', 'user_birthday')" class="text-danger">*BirthDay is required</small>
+                                </div> -->
+                <div class="col-md-6">
+                  <label class="small mb-1" for="inputOrgName">Facculty</label>
+                  <input formControlName="user_faculty" class="form-control" id="inputFaculty" type="text"
+                    name="user_faculty" readonly>
+                  <small
+                    *ngIf="profileForm.controls['user_faculty'].dirty && profileForm.hasError('required', 'user_faculty')"
+                    class="text-danger">*Faculty is required</small>
+                </div>
+                <div class="col-md-6">
+                  <label class="small mb-1" for="inputOrgName">Role</label>
+                  <input formControlName="user_role" class="form-control" id="inputRole" type="text" name="user_role"
+                    readonly>
+                  <small
+                    *ngIf="profileForm.controls['user_role'].dirty && profileForm.hasError('required', 'user_role')"
+                    class="text-danger">*Role is required</small>
+                </div>
+                <!-- <fieldset disabled class="col-md-6">
+                                    <div >
+                                      <label for="disabledTextInput" class="small mb-1">Faculty</label>
+                                      <input  formControlName="user_faculty" class="form-control" id="inputFaculty" type="text" name="user_faculty">
+                                    </div>
+                                </fieldset> -->
+              </div>
+
+              <!-- Form Group (gender)-->
+
+              <!-- <div class="gender-details">
+                                <span style="font-weight: 500; color: var(--grey-color);">Gender</span><br>
+                                <div style="display: flex;">
+                                  <input formControlName="user_gender" type="radio" value="Male" style="margin-right: 10px;"> <p style="margin-top: 13px; margin-right: 45px;">Male</p>
+                                  <input formControlName="user_gender" type="radio" value="Female" style="margin-right: 10px;"><p style="margin-top: 13px; margin-right: 45px;">Female</p>
+                                  <input formControlName="user_gender" type="radio" value="Prefer not to say" style="margin-right: 10px;"> <p style="margin-top: 13px; margin-right: 45px;">Other</p>
+                                </div>
+                                <small *ngIf="profileForm.controls['user_gender'].dirty && profileForm.hasError('required', 'user_gender')" class="text-danger">*Gender is required</small>
+                              </div> -->
+
+              <!-- Save changes button-->
+              <button style="margin-top: 10px;" class="btn btn-primary" type="submit" (click)="onClick()">Save</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

@@ -1,0 +1,132 @@
+<main>
+  <div class="container">
+    <div class="row flex-lg-nowrap">
+      <form [formGroup]="addArticleForm" enctype="multipart/form-data">
+        <div class="col" style=" margin-top: 20px;">
+          <div class="row">
+            <div class="col mb-3">
+              <div class="card">
+                <div class="card-body">
+                  <div class="articles">
+                    <div class="row">
+                      <div class="col-12 col-sm-auto mb-3">
+                        <div class="mx-auto" style="width: 220px; height: 220px;">
+                          <div class="d-flex justify-content-center align-items-center rounded"
+                            style="height: 220px; width: 240px; background-color: rgb(233, 236, 239);">
+                            <img [src]="imageUrl" style="max-width: 100%; max-height: 100%; ">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
+                        <div class="text-center text-sm-left mb-2 mb-sm-0">
+                          <div class="mt-2">
+                            <!-- <button id="btn_ChangePhoto" class="btn btn-primary" type="button" style="margin-top: 85px;">
+                                <i class="fa fa-fw fa-camera"></i>
+                                <span>Change Photo</span>
+                              </button> -->
+                            <!-- <input style="margin-top: 85px;" (change)="uploadImage($event)" type="file" id="myFile" name="filename"> -->
+                            <input type="file" (change)="onFileSelected($event)" style="margin-top: 85px;">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <ul class="nav nav-tabs">
+                      <li class="nav-item"><a href="" class="active nav-link"
+                          style="font-size: 22px; font-weight: 600;">New Articles</a></li>
+                    </ul>
+                    <div class="tab-content pt-3">
+                      <div class="tab-pane active">
+                        <!-- <form class="form" novalidate=""> -->
+                        <div class="row">
+                          <div class="col">
+                            <div class="row" style="margin-bottom: 20px;">
+                              <div class="col">
+                                <div class="form-group">
+                                  <label for="formFileMultiple" class="form-label"
+                                    style="font-weight: 600;">Title</label>
+                                  <input formControlName="contribution_title" class="form-control" type="text"
+                                    name="name">
+                                  <small
+                                    *ngIf="addArticleForm.controls['contribution_title'].dirty && addArticleForm.hasError('required', 'contribution_title')"
+                                    class="text-danger">*Title is required</small>
+                                </div>
+                                <div class="form-group">
+                                  <label for="formFileMultiple" class="form-label" style="font-weight: 600;">Current
+                                    Year</label>
+                                  <input formControlName="currentYear" class="form-control" type="text" name="name"
+                                    style="opacity: 0.5; pointer-events: none;">
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="mb-3">
+                              <label for="formFileMultiple" class="form-label" style="font-weight: 600;">Choose Article
+                                File</label>
+                              <input (change)="handleFileInput($event)" class="form-control" type="file"
+                                id="formFileMultiple" multiple>
+                            </div>
+
+                          </div>
+
+                        </div>
+                        <div class="row">
+                          <div class="col d-flex justify-content-end">
+                            <button id="btn_Back" class="btn btn-primary" type="submit"
+                              routerLink="/Management-Articles">Back</button>
+                            <!-- <button [disabled]="isChecked" id="btn_Add" class="btn btn-primary" type="submit" (click)="onCreate()">Submit</button> -->
+                            <button id="btn_Add" class="btn btn-primary" type="submit" data-bs-toggle="modal"
+                              data-bs-target="#exampleModalCenter">Add</button>
+                          </div>
+                        </div>
+                        <!-- </form> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Term & Condition</h5>
+      </div>
+      <div class="modal-body">
+        <p>Plagiarism is presenting somebody else's work as your own. It includes: copying information directly from the
+          Web or books without referencing the material; submitting joint coursework as an individual effort; copying
+          another student's coursework; stealing coursework from another student and submitting it as your own work.
+          Suspected plagiarism will be investigated and if found to have occurred will be dealt with according to the
+          procedures set down by the University. </p>
+
+        <p>
+          All material copied or amended from any source (e.g. internet, books) must be referenced correctly according
+          to the reference style you are using.
+          .</p>
+        <p>
+          Your work will be submitted for plagiarism checking. Any attempt to bypass our plagiarism detection systems
+          will be treated as a severe Assessment Offence.
+        </p>
+
+        <div class="mb-3" style="display: flex;">
+          <input type="checkbox" [(ngModel)]="!isChecked" (change)="toggleButton()">
+          <p style="margin-top: 15px; margin-left: 5px;">I agree with the terms and conditions.</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button [disabled]="isChecked" id="btn-Confirm" type="button" class="btn btn-primary" data-bs-dismiss="modal"
+          (click)="onCreate()">Confirm</button>
+      </div>
+    </div>
+  </div>
+</div>

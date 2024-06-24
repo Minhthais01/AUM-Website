@@ -1,0 +1,64 @@
+<main>
+
+    <div class="public">
+        <p class="public-p1">Articles awaiting comments</p>
+        <!-- <p class="public-p2"> 14 days</p> -->
+
+    </div>
+
+    <div class="table">
+
+        <div class="table_section">
+            <table>
+                <thead>
+                    <tr>
+                        <th>User ID</th>
+                        <th>Username</th>
+                        <th>Image</th>
+                        <th>Title</th>
+                        <th>Submission Date</th>
+                        <th>Closure Date</th>
+                        <th>Final Closure Date</th>
+                        <th>Remaining date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let i of lstArticle | paginate:{itemsPerPage: pageSize, currentPage: currentPage}">
+                    <tr>
+                        <td>{{i.user_id}}</td>
+                        <td>{{i.username}}</td>
+                        <td><img [src]="(pathImg + i.contribution_image)" alt=""></td>
+                        <td>{{i.contribution_title}}</td>
+                        <td>{{i.contribution_submition_date | date : 'MM-dd-yyyy'}}</td>
+                        <td>{{i.contribution_submition_date | date : 'MM-dd-yyyy'}}</td>
+                        <td>{{i.final_clouser_date | date : 'mm-dd-yyyy'}}</td>
+                        <td>14 </td>
+                        <td>
+                            <button [routerLink]="['/Add-Comment', i.contribution_id]"><i class="fa-solid fa-eye"></i></button>
+                            <button (click)="downLoadOneAriticle(i.contribution_id)"><i class="fa-solid fa-download"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+<!--
+                <tbody >
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <button [routerLink]=""><i class="fa-solid fa-eye"></i></button>
+                        </td>
+                    </tr>
+                </tbody> -->
+
+            </table>
+            <div class="pagination">
+                <pagination-controls (pageChange)="currentPage=$event" variant="Circular"></pagination-controls>
+            </div>
+        </div>
+    </div>
+  </main>
+

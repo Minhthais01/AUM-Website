@@ -1,0 +1,78 @@
+<main>
+
+  <div class="container" *ngIf="contribution">
+    <header>
+      <h1 class="heading-1"> {{contribution.contribution_title}} </h1>
+      <div class="sub-heading">
+        <p>{{ contribution.contribution_submition_date | date: 'EEEE'}}, <span>{{
+            contribution.contribution_submition_date | date: 'yyyy-MM-dd'}}</span></p>
+        <p class="importent">your right to know</p>
+      </div>
+    </header>
+
+    <div class="main">
+      <div class="home">
+
+        <div class="left">
+          <img src="https://localhost:7195/Imgs/{{contribution.contribution_image}}" class="home-img"
+            alt="Paper photo" />
+
+          <!-- <h2 class="heading-2">
+            A Lorem ipsum dolor sit amet consectetur adipisicing elit cupiditate
+            possimus.
+          </h2> -->
+        </div>
+
+        <div class="right">
+          <h3 class="heading-3">Comments</h3>
+          <div class="lists">
+            <!--  -->
+            <div class="list" *ngFor="let c of lstcomment">
+
+              <div class="comment-left">
+
+                <p class="comment-name"
+                  [ngStyle]="{ border: c.comment_user_id == userID ? '2px solid #29d8d8' : '1px solid #4c6d6d59' }">
+                  {{c.comment_username }}
+                </p>
+                <p class="comment-date">{{c.comment_date | date : 'yyyy-MM-dd | hh:mm'}}</p>
+
+              </div>
+
+              <div class="comment-left">
+
+                <!-- <p class="comment-text" [ngStyle]="{ color: c.comment_user_id == userID ? 'red' : 'black' }" >{{c.comment_content}}
+                </p>   -->
+
+                <p class="comment-isMine"
+                  [ngStyle]="{ background: c.comment_user_id == userID ? 'rgb(32 171 171)' : 'rgb(76 109 109 / 59%)' }">
+                  {{c.comment_content}}
+                </p>
+
+
+              </div>
+              <div class="div-button">
+                <button *ngIf="c.comment_user_id == userID" class="button-button"
+                  (click)="getCommentToUpdate(c.comment_id, c.comment_content
+                  )"><i class="fa-solid fa-pen-to-square"></i></button>
+                <button *ngIf="c.comment_user_id == userID && contribution.isSelected != 'Selected'" class="button-button"
+                  (click)="deleteComment(c.comment_id)"><i class="fa-solid fa-trash"></i></button>
+              </div>
+            </div>
+            <!--  -->
+          </div>
+          <div class="area" *ngIf="deadline">
+            <textarea class="area-textarea" [(ngModel)]="commentcontent" placeholder="Text something here..."
+              required></textarea>
+            <a class="button" style="--clr:#29d8d8; cursor: pointer;"
+              (click)="sendComment()"><span>Send</span><i></i></a>
+          </div>
+        </div>
+      </div>
+      <blockquote [innerHTML]="htmlContent">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio reprehenderit magnam vitae sint laborum quod
+        sapiente assumenda obcaecati. Id, fugit amet. Quas, deserunt quibusdam ex fuga quam sunt cumque debitis.
+      </blockquote>
+    </div>
+  </div>
+</main>

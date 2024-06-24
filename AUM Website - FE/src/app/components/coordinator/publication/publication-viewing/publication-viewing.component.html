@@ -1,0 +1,87 @@
+<main>
+
+  <div class="public">
+      <!-- <p class="public-p1">Due Date:</p>  -->
+      <!-- <p class="public-p2"> 14 days</p> -->
+
+  </div>
+
+  <div class="table">
+
+      <div class="table_section">
+          <table>
+              <thead>
+                  <tr>
+                      <th>Image</th>
+                      <th>ID</th>
+                      <th>Title</th>
+                      <th>Submission</th>
+                      <!-- <th>Closing Date</th> -->
+                      <!-- <th>Rate</th> -->
+                      <th>Status</th>
+                      <!-- <th>Approved / Rejected Action</th> -->
+                      <th>Action</th>
+                  </tr>
+              </thead>
+              <tbody *ngFor="let i of lstArticle | paginate:{itemsPerPage: pageSize, currentPage: currentPage}">
+
+                  <tr>
+                      <td><img [src]="(pathImg + i.contribution_image)" alt=""></td>
+                      <td>{{i.contribution_id}}</td>
+                      <td>{{i.contribution_title}}</td>
+                      <td>{{i.contribution_submition_date | date : 'MM-dd-yyyy'}}</td>
+                      <!-- <td>5/4/2024</td> -->
+                      <!-- <td>
+                          <button routerLink="/View-Pub" class="button-waiting">
+                              Waiting</button>
+                          <button routerLink="/View-Pub" class="button-fail"></button>
+                          <button routerLink="/View-Pub" class="button-pass"></button>
+                      </td> -->
+                      <!-- <td *ngIf="i.isSelected === 'Pending'">Pending</td>
+                      <td *ngIf="i.isSelected === 'Selected'">Approved</td>
+                      <td *ngIf="i.isSelected === 'Unselected'">Rejected</td> -->
+                      <td>
+                          <button routerLink="/View-Pub" class="button-waiting" *ngIf="i.isView === 'Unview'">Pending</button>
+
+                            <button (click)="Approve(i.contribution_id)"
+                                *ngIf="i.isView === 'View' && i.isSelected === 'Pending' && i.isPublic === 'Private'" class="button-approve">Approve
+                            </button>
+                            <button (click)="Reject(i.contribution_id)"
+                                *ngIf="i.isView === 'View' && i.isSelected === 'Pending' && i.isPublic === 'Private'" class="button-reject">Reject
+                            </button>
+                          <button (click)="Approve(i.contribution_id)"
+                              *ngIf="i.isView === 'View' && i.isSelected === 'Pending' && i.isPublic === 'Private'" class="button-approve">Approve
+                          </button>
+                          <button (click)="Reject(i.contribution_id)"
+                              *ngIf="i.isView === 'View' && i.isSelected === 'Pending' && i.isPublic === 'Private'" class="button-reject">Reject
+                          </button>
+
+                          <!-- reject -->
+                          <button (click)="Approve(i.contribution_id)"
+                              *ngIf="i.isPublic === 'Private' && i.isSelected === 'Unselected' && i.isView === 'View'"
+                              class="button-reject1"></button>
+
+                          <!-- approve -->
+                          <button (click)="Reject(i.contribution_id)"
+*ngIf="i.isPublic === 'Private' && i.isSelected === 'Selected'"
+                              class="button-approve1"
+                              ></button>
+
+                          <button
+                            *ngIf="i.isPublic === 'Public' && i.isSelected === 'Selected'"
+                            class="button-reject2" aria-readonly="true"></button>
+                      </td>
+                      <td>
+                          <button [routerLink]="['/Add-Comment', i.contribution_id]"
+                              (click)="view(i.contribution_id)"><i class="fa-solid fa-eye"></i></button>
+                              <button (click)="downLoadOneAriticle(i.contribution_id)"><i class="fa-solid fa-download"></i></button>
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+          <div class="pagination">
+              <pagination-controls (pageChange)="currentPage=$event" variant="Circular"></pagination-controls>
+          </div>
+      </div>
+  </div>
+</main>

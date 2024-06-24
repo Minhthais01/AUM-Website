@@ -1,0 +1,61 @@
+<body>
+    <div class="container">
+      <header>
+      <h1 class="heading-1">{{contribution.contribution_title}}</h1>
+      <div class="sub-heading">
+        <p>{{ contribution.contribution_submition_date | date: 'EEEE'}}, <span>{{ contribution.contribution_submition_date | date: 'yyyy-MM-dd'}}</span></p>
+        <p class="importent">your right to know</p>
+      </div>
+      </header>
+
+      <div class="main">
+        <div class="home">
+          <div class="left">
+            <img src="https://localhost:7195/Imgs/{{contribution.contribution_image}}" class="home-img" alt="Paper photo">
+
+            <!-- <h2 class="heading-2">
+              {{contribution.contribution_title}}
+            </h2> -->
+          </div>
+
+          <!-- <div class="right">
+            <h3 class="heading-3">latest news</h3>
+            <div class="lists">
+              <div class="list">
+                <img src="/assets/img/c.jpg" alt="photo 1">
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio, veritatis!</p>
+              </div>
+
+              <div class="list">
+                <img src="/assets/img/c.jpg" alt="photo 2">
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio, veritatis!</p>
+              </div>
+
+              <div class="list">
+                <img src="/assets/img/c.jpg" alt="photo 3">
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio, veritatis!</p>
+              </div>
+
+              <div class="list">
+                <img src="/assets/img/c.jpg" alt="photo 4">
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio, veritatis!</p>
+              </div>
+              <div class="list">
+                <img src="/assets/img/c.jpg" alt="photo 4">
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio, veritatis!</p>
+              </div>
+              <div class="list">
+                <img src="/assets/img/c.jpg" alt="photo 4">
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio, veritatis!</p>
+              </div>
+            </div>
+          </div> -->
+        </div>
+
+      </div>
+    </div>
+
+    <blockquote [innerHTML]="htmlContent">
+    </blockquote>
+
+  </body>

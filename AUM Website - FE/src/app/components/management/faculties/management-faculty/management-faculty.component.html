@@ -1,0 +1,36 @@
+<main>
+    <div class="table">
+        <div class="table_header">
+            <h4>Faculties Management</h4>
+            <div style="display: flex;">
+              <!-- <input placeholder="search..." /> -->
+                <button routerLink="/Add-Faculty" class="add_new"><i class="fa-solid fa-plus"></i></button>
+            </div>
+        </div>
+        <div class="table_section">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Fucalty name</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let f of lstFaculty | paginate:{itemsPerPage: pageSize, currentPage: currentPage}">
+                        <td>{{f.faculty_id}}</td>
+                        <td>{{f.faculty_name}}</td>
+                        <td>
+                            <!-- <button routerLink=""><i class="fa-solid fa-eye"></i></button> -->
+                            <button [routerLink]="['/Update-Faculty', f.faculty_id]"><i class="fa-solid fa-pen-to-square"></i></button>
+                            <!-- <button (click)="deleteFaculty(f.faculty_id)"><i class="fa-solid fa-trash"></i></button> -->
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="pagination">
+                <pagination-controls (pageChange)="currentPage=$event" variant="Circular"></pagination-controls>
+            </div>
+        </div>
+    </div>
+  </main>

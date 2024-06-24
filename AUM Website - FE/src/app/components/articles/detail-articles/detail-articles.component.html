@@ -1,0 +1,152 @@
+<main class="bg-light">
+  <div class="container" *ngIf="contribution">
+    <div class="text-center my-5">
+      <h1 style="color: rgb(67 0 86);">{{contribution.contribution_title}}</h1>
+      <hr />
+      <div class="sub-heading">
+        <p>{{ contribution.contribution_submition_date | date: 'EEEE'}}, <span>{{ contribution.contribution_submition_date | date: 'yyyy-MM-dd'}}</span></p>
+        <p class="importent">your right to know</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <div class="card mb-5 shadow-sm">
+          <img src="https://localhost:7195/Imgs/{{contribution.contribution_image}}" class="home-img" alt="Paper photo" />
+
+          <div class="card-body">
+            <div class="card-title">
+              <h2>Article</h2>
+            </div>
+            <div class="card-text">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Deleniti corporis quis ab. Exercitationem et quibusdam
+                impedit? Sint vitae labore nulla sit, dignissimos non tempore,
+                maxime facere, quod harum aliquid in...
+              </p>
+            </div>
+            <a routerLink="/Guest-ViewArticleDetail" class="btn btn-outline-primary rounded-0 float-end" id="btn-readMore"
+              >More</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <div class="card mb-5 shadow-sm">
+          <img src="/assets/img/b.jpg" class="img-fluid" id="img"/>
+
+          <div class="card-body">
+            <div class="card-title">
+              <h2>Article</h2>
+            </div>
+            <div class="card-text">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Deleniti corporis quis ab. Exercitationem et quibusdam
+                impedit? Sint vitae labore nulla sit, dignissimos non tempore,
+                maxime facere, quod harum aliquid in...
+              </p>
+            </div>
+            <a routerLink="/Guest-ViewArticleDetail" class="btn btn-outline-primary rounded-0 float-end" id="btn-readMore"
+            >More</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <div class="card mb-5 shadow-sm">
+          <img src="/assets/img/c.jpg" class="img-fluid" id="img"/>
+
+          <div class="card-body">
+            <div class="card-title">
+              <h2>Article</h2>
+            </div>
+            <div class="card-text">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Deleniti corporis quis ab. Exercitationem et quibusdam
+                impedit? Sint vitae labore nulla sit, dignissimos non tempore,
+                maxime facere, quod harum aliquid in...
+              </p>
+            </div>
+            <a routerLink="/Guest-ViewArticleDetail" class="btn btn-outline-primary rounded-0 float-end" id="btn-readMore"
+            >More</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <div class="card mb-5 shadow-sm">
+          <img src="/assets/img/d.jpg" class="img-fluid" id="img"/>
+
+          <div class="card-body">
+            <div class="card-title">
+              <h2>Article</h2>
+            </div>
+            <div class="card-text">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Deleniti corporis quis ab. Exercitationem et quibusdam
+                impedit? Sint vitae labore nulla sit, dignissimos non tempore,
+                maxime facere, quod harum aliquid in...
+              </p>
+            </div>
+            <a routerLink="/Guest-ViewArticleDetail" class="btn btn-outline-primary rounded-0 float-end" id="btn-readMore"
+              >More</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <div class="card mb-5 shadow-sm">
+          <img src="/assets/img/e.jpg" class="img-fluid" id="img"/>
+
+          <div class="card-body">
+            <div class="card-title">
+              <h2>Article</h2>
+            </div>
+            <div class="card-text">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Deleniti corporis quis ab. Exercitationem et quibusdam
+                impedit? Sint vitae labore nulla sit, dignissimos non tempore,
+                maxime facere, quod harum aliquid in...
+              </p>
+            </div>
+            <a routerLink="/Guest-ViewArticleDetail" class="btn btn-outline-primary rounded-0 float-end" id="btn-readMore"
+            >More</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <div class="card mb-5 shadow-sm">
+          <img src="/assets/img/f.jpg" class="img-fluid" id="img"/>
+
+          <div class="card-body">
+            <div class="card-title">
+              <h2>Article</h2>
+            </div>
+            <div class="card-text">
+              <article [innerHTML]="fileWord">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Deleniti corporis quis ab. Exercitationem et quibusdam
+                  impedit? Sint vitae labore nulla sit, dignissimos non tempore,
+                  maxime facere, quod harum aliquid in...
+                </p>
+              </article>
+            </div>
+            <a routerLink="/Guest-ViewArticleDetail" class="btn btn-outline-primary rounded-0 float-end" id="btn-readMore">More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

@@ -1,0 +1,49 @@
+main{
+    background-color:#f2f6fc;
+    color:#69707a;
+    }
+
+    #btn_Back{
+        margin-right: 5px;
+        background-color: #69707a;
+        border: #69707a;
+        width: 80.7px;
+      }
+      
+      #btn_Back:hover{
+        margin-right: 5px;
+        background-color: #b3c3da;
+        border: #b3c3da;
+      }
+
+#Date1{
+    width: 300px;
+    height: 40px;
+    margin-left: 10px;
+    border-radius: 5px;
+    border: rgb(177, 200, 214) 1px solid;
+}
+
+#Date2{
+    width: 300px;
+    height: 40px;
+    margin-left: 18px;
+    border-radius: 5px;
+    border: rgb(177, 200, 214) 1px solid;
+}
+
+#submit-aca{
+    width: 80.7px;
+    padding: 10px 20px;
+    color: #ffffff;
+    background-color: #ff014fff;
+    border-radius: 5px;
+    border: none;
+}
+
+#submit-aca:hover{
+    background-color: rgb(247, 6, 78);
+    font-size: 16px;
+    box-shadow: 0 0 10px rgba(255, 1, 1, 0.5);
+}
+

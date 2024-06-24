@@ -1,0 +1,49 @@
+main{
+    background-color:#f2f6fc;
+    color:#69707a;
+    }
+
+#Date1{
+    width: 300px;
+    height: 40px;
+    margin-left: 10px;
+    border-radius: 5px;
+    border: rgb(177, 200, 214) 1px solid;
+}
+
+#Date2{
+    width: 300px;
+    height: 40px;
+    margin-left: 18px;
+    border-radius: 5px;
+    border: rgb(177, 200, 214) 1px solid;
+}
+
+#btn_Back{
+  margin-right: 5px;
+  background-color: #69707a;
+  border: #69707a;
+}
+
+#btn_Update{
+    background-color: #ff014fff;
+    border: #ff014fff;
+  }
+  
+  #btn_Update:hover{
+    background-color: rgb(255, 101, 148);
+    border: rgb(255, 101, 148);
+  }
+
+  #btn_Back{
+    width: 83px;
+    margin-right: 5px;
+    background-color: #69707a;
+    border: #69707a;
+  }
+  
+  #btn_Back:hover{
+    margin-right: 5px;
+    background-color: #b3c3da;
+    border: #b3c3da;
+  }

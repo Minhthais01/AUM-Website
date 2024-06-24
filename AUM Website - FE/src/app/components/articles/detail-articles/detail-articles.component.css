@@ -1,0 +1,14 @@
+#img{
+  height: 250px;
+}
+
+#btn-readMore{
+  border-color: #ff014fff;
+  color: #ff014fff;
+}
+
+#btn-readMore:hover{
+  border-color: #ff014fff;
+  color: rgb(255, 255, 255);
+  background-color: #ff014fff;
+}

@@ -1,0 +1,35 @@
+<main class="bg-light">
+  <div class="container">
+    <div class="text-center my-5">
+      <h1 style="color: rgb(67 0 86);"> All Faculties</h1>
+      <hr />
+    </div>
+    <div class="row">
+      <div class="col-lg-4 col-md-6 col-sm-12" *ngFor="let a of lstFaculty | paginate:{itemsPerPage: pageSize, currentPage: currentPage}">
+        <div class="card mb-5 shadow-sm">
+          <img [src]="(baseImgUrl + a.img)" class="img-fluid" id="img" alt="{{a.name}}"/>
+          <div class="card-body" id="card-article">
+            <div class="card-title">
+              <h2 class="title">{{a.name}}</h2>
+            </div>
+            <div class="card-text">
+              <p class="content">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Deleniti corporis quis ab. Exercitationem et quibusdam
+                impedit? Sint vitae labore nulla sit, dignissimos non tempore,
+                maxime facere, quod harum aliquid in...
+              </p>
+            </div>
+            <!-- <a [routerLink]="['/Guest-ViewArticleDetail', a.contribution_id]"
+              class="btn btn-outline-primary rounded-0 float-end" id="btn-readMore">View</a> -->
+              <a [routerLink]="['/Manager-ViewArticle', a.id]"
+              class="btn btn-outline-primary rounded-0 float-end" id="btn-readMore">View</a>
+          </div>
+        </div>
+      </div>
+      <div class="pagination">
+        <pagination-controls (pageChange)="currentPage=$event" variant="Circular"></pagination-controls>
+    </div>
+    </div>
+  </div>
+</main>

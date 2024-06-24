@@ -1,0 +1,50 @@
+<main>
+  <div class="container">
+      <div class="row flex-lg-nowrap">
+      
+        <div class="col" style=" margin-top: 20px;">
+          <div class="row">
+            <div class="col mb-3">
+              <div class="card">
+                <div class="card-body">
+                  <div class="add-faculty">
+                    <ul class="nav nav-tabs">
+                      <li class="nav-item"><a href="" class="active nav-link" style="font-size: 22px; font-weight: 600;">Update Faculty</a></li>
+                    </ul>
+                    <div class="tab-content pt-3">
+                      <div class="tab-pane active">
+                        <form [formGroup]="updateFacultyForm">
+                          <div class="row">
+                            <div class="col">
+                              <div class="row" style="margin-bottom: 20px;">
+                                <div class="col">
+                                  <div class="form-group">
+                                      <label for="formFileMultiple" class="form-label" style="font-weight: 600;">Faculty Name</label>
+                                      <input formControlName="faculty_name" class="form-control" type="text" name="name">
+                                      <small *ngIf="updateFacultyForm.controls['faculty_name'].dirty && updateFacultyForm.hasError('required', 'faculty_name')" class="text-danger">*Faculty Name is required</small>
+                                  </div>
+                                </div>
+                            </div>
+                          </div>
+                
+                        </div>
+                        <div class="row">
+                          <div class="col d-flex justify-content-end">
+                              <button id="btn_Back" class="btn btn-primary" type="submit" routerLink="/Management-Faculty">Back</button>
+                              <button id="btn_Update" class="btn btn-primary" type="submit" (click)="onUpdate()">Update</button>
+                          </div>
+                        </div>
+                      </form>
+    
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+      </div>
+    </div>
+    </div>
+</main>

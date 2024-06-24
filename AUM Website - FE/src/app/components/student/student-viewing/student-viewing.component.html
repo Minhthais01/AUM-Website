@@ -1,0 +1,35 @@
+<main class="bg-light">
+    <div class="container">
+      <div class="text-center my-5">
+        <h1 style="color: rgb(67 0 86);">Articles</h1>
+        <hr />
+      </div>
+
+      <div class="row" >
+        <div class="col-lg-4 col-md-6 col-sm-12" *ngFor="let item of lstContribution | paginate:{itemsPerPage: pageSize, currentPage: currentPage}" >
+          <div class="card mb-5 shadow-sm" >
+            <img [src]="(pathImg + item.contribution_image)" class="img-fluid" id="img"/>
+
+            <div class="card-body" id="card-article">
+              <div class="card-title">
+                <h2 class="title">{{item.contribution_title}}</h2>
+              </div>
+              <div class="card-text">
+                <p class="content">
+                  Artificial Intelligence (AI) is the field of research and development of computer systems capable of learning and adaptation, aiming to simulate human-like thinking and decision-making abilities, if not better. From recognizing images and voices to predicting trends and interacting with humans, AI has permeated most modern life domains.
+                </p>
+              </div>
+              <a [routerLink]="['/View-StudentArticleDetail', item.contribution_id]" class="btn btn-outline-primary rounded-0 float-end" id="btn-readMore"
+                >Read More</a
+              >
+            </div>
+          </div>
+          
+        </div>
+        <div class="pagination">
+          <pagination-controls (pageChange)="currentPage=$event" variant="Circular"></pagination-controls>
+      </div>
+      </div>
+      
+    </div>
+  </main>

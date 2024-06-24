@@ -1,0 +1,83 @@
+<main>
+  <div class="table">
+
+    <div class="table_header">
+      <h4>Articles Management</h4>
+      <div style="display: flex;">
+        <!-- <input placeholder="search..." /> -->
+        <button routerLink="/Add-Articles" class="add_new"><i class="fa-solid fa-plus"></i></button>
+      </div>
+    </div>
+
+
+    <div class="table_section">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Image</th>
+            <th>Title</th>
+            <!-- <th>Content</th> -->
+            <th>Submission Date</th>
+            <!-- <th>Closing Date</th> -->
+            <th>Rate</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let c of lstArticles | paginate:{itemsPerPage: pageSize, currentPage: currentPage}">
+          <tr>
+            <td>{{c.contribution_id}}</td>
+            <td><img [src]="(pathImg + c.contribution_image)"></td>
+            <td>{{c.contribution_title}}</td>
+            <!-- <td>{{pathDoc + c.contribution_content}}</td> -->
+            <!-- <td><img [src]="(pathDoc + c.contribution_content)"></td> -->
+            <td>{{c.contribution_submition_date | date : 'yyyy-MM-dd'}}</td>
+            <!-- <td>{{c.contribution_submition_date | date : 'yyyy-MM-dd'}}</td> -->
+            <td *ngIf="c.isView == 'Unview'">Pending</td>
+            <td *ngIf="c.isSelected == 'Selected' && c.isView == 'View'">Aproved</td>
+            <td *ngIf="c.isSelected == 'Unselected' && c.isView == 'View'">Rejected</td>
+            <td>{{c.isPublic}}</td>
+            <td>
+              <button [routerLink]="['/Add-Comment', c.contribution_id]"><i class="fa-solid fa-eye"></i></button>
+              <button [routerLink]="['/Update-Articles', c.contribution_id]"><i
+                  class="fa-solid fa-pen-to-square"></i></button>
+              <button data-bs-toggle="modal" data-bs-target="#exampleModalCenter"><i
+                  class="fa-solid fa-trash"></i></button>
+            </td>
+          </tr>
+
+
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">Delete</h5>
+                </div>
+                <div class="modal-body">
+                  <h5>Are you sure to delete?</h5>
+                  <!-- <div class="mb-3" style="display: flex;">
+          <input type="checkbox">
+          <p style="margin-top: 15px; margin-left: 5px;">I agree with the terms and conditions of the service.</p>
+        </div> -->
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button id="btn-Confirm" type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                    (click)="deleteContribution(c.contribution_id)">Confirm</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </tbody>
+      </table>
+      <div class="pagination">
+        <pagination-controls (pageChange)="currentPage=$event" variant="Circular"></pagination-controls>
+    </div>
+
+    </div>
+
+  </div>
+</main>

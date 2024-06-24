@@ -1,0 +1,47 @@
+main{
+    background-color:#f2f6fc;
+    color:#69707a;
+    }
+
+#btn_Update{
+  background-color: #ff014fff;
+  border: #ff014fff;
+}
+
+#btn_Update:hover{
+  background-color: rgb(255, 101, 148);
+  border: rgb(255, 101, 148);
+}
+
+#btn_ChangePhoto{
+  background-color: #ff014fff;
+  border: #ff014fff;
+}
+
+#btn_ChangePhoto:hover{
+  background-color: rgb(255, 101, 148);
+  border: rgb(255, 101, 148);
+}
+
+#btn_Back{
+  width: 83px;
+  margin-right: 5px;
+  background-color: #69707a;
+  border: #69707a;
+}
+
+#btn_Back:hover{
+  margin-right: 5px;
+  background-color: #b3c3da;
+  border: #b3c3da;
+}
+
+#btn-Confirm{
+  background-color: #ff014fff; 
+  border-color: #ff014fff;
+}
+
+#btn-Confirm:hover{
+  background-color: rgb(251, 41, 104); 
+  border-color: rgb(251, 41, 104);
+}

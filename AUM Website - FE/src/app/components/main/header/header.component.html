@@ -1,0 +1,129 @@
+<main>
+    <div class="top-navbar">
+      <!-- <p style="font-weight: 600; display: {{n}};">Hi {{fullname}} </p> -->
+      <!-- <p style="font-weight: 600;">WELCOME {{fullname}}</p> -->
+      <p style="font-weight: 600; display: {{n}};">Hi {{fullname}} </p>
+      <p style="font-weight: 600; display: {{m}};">WELCOME TO...</p>
+      <div class="icons" style="display: flex;">
+          <a style="font-weight: 600; margin-right: 5px; display: {{m}};"  routerLink="" ><i class="fa-solid fa-right-to-bracket"  alt="" width="18px"></i>Login</a>
+          <!-- <a routerLink="/login" *ngIf="role === 'Admin' || role === 'Customer' || role === 'Manager'" (click)="signOut()" style="display: {{n}};"><i class="fa-solid fa-right-to-bracket"  alt="" width="18px" style="margin-right: 5px;"></i>Logout</a> -->
+          <li ngbDropdown class="nav-item dropdown" style="list-style: none;">
+            <a ngbDropdownToggle class="nav-link dropdown-toggle"  id="navbarDropdown" role="button"
+            data-bs-toggle="dropdown" aria-expanded="false" style="color: black; font-size: 15px; font-weight: 600; margin-top: 1px;"><i class="fa-solid fa-user" ></i>
+              User
+            </a>
+            <ul ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: rgb(67 0 86);">
+              <li><a ngbDropdownItem class="dropdown-item" routerLink="/Profile">Profile</a></li>
+              <li><a ngbDropdownItem class="dropdown-item" routerLink="/Old-Password">Password</a></li>
+              <!-- <li><a ngbDropdownItem class="dropdown-item" routerLink="/Create-Account" style="font-size: 15px;">Create Account</a></li> -->
+              <li><a ngbDropdownItem class="dropdown-item" href="#" (click)="signOut()">Log out</a></li>
+            </ul>
+          </li>
+      </div>
+  </div>
+    <!-- top navbar -->
+
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg" id="navbar">
+        <div class="container-fluid">
+
+
+
+          <a class="navbar-brand" *ngIf="this.role === 'Student'" routerLink="/View-Student"  id="logo"><span id="span1">AUM</span>Article</a>
+          <a class="navbar-brand" *ngIf="this.role === 'Guest'" routerLink="/View-Articles"  id="logo"><span id="span1">AUM</span>Article</a>
+          <a class="navbar-brand" *ngIf="this.role === 'Manager'" routerLink="/View-ManagerHome"  id="logo"><span id="span1">AUM</span>Article</a>
+          <a class="navbar-brand" *ngIf="this.role === 'Admin'" routerLink="/Admin-Statistic"  id="logo"><span id="span1">AUM</span>Article</a>
+          <a class="navbar-brand" *ngIf="this.role === 'Coordinator'" routerLink="/View-Comment"  id="logo"><span id="span1">AUM</span>Article</a>
+
+
+          <button class="btn-bar navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span><i class="fa-solid fa-bars" style="color: white;" alt="" width="30px"></i></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <!-- <li class="nav-item">
+                <a class="nav-link active" aria-current="page" routerLink="/View-Articles">Home</a>
+              </li> -->
+              <!-- <li class="nav-item">
+                <a class="nav-link active" aria-current="page" routerLink="/Management-Articles">Management</a>
+              </li> -->
+              <!-- *ngIf="role === 'Admin' -->
+
+              <!-- <li ngbDropdown class="nav-item dropdown">
+                <a ngbDropdownToggle class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                Home
+                </a>
+                <ul ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: rgb(67 0 86);">
+                  <li><a ngbDropdownItem class="dropdown-item" routerLink="/View-Articles">Guest</a></li>
+                  <li><a ngbDropdownItem class="dropdown-item" routerLink="/View-Student">Student</a></li>
+                  <li><a ngbDropdownItem class="dropdown-item" routerLink="/View-ManagerHome">Manager</a></li>
+                </ul>
+              </li> -->
+
+              <!-- Home -->
+
+              <a id="home-home" *ngIf="this.role === 'Student'" class="nav-link active" aria-current="page" routerLink="/View-Student">Home</a>
+              <a id="home-home" *ngIf="this.role === 'Guest'" class="nav-link active" aria-current="page" routerLink="/View-Articles">Home</a>
+              <a id="home-home" *ngIf="this.role === 'Manager'" class="nav-link active" aria-current="page" routerLink="/View-ManagerHome">Home</a>
+
+
+              <li ngbDropdown class="nav-item dropdown" *ngIf="this.role === 'Admin' || this.role === 'Manager'
+              || this.role === 'Student' || this.role === 'Coordinator'">
+                <a ngbDropdownToggle class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                  Management
+                </a>
+                <ul ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: rgb(67 0 86);">
+                  <li><a ngbDropdownItem class="dropdown-item" *ngIf="this.role === 'Coordinator'" routerLink="/View-Pub">Approve/Reject Articles</a></li>
+                  <li><a ngbDropdownItem class="dropdown-item" *ngIf="this.role === 'Coordinator'" routerLink="/View-Comment">Comment Articles</a></li>
+                  <li><a ngbDropdownItem class="dropdown-item" *ngIf="this.role === 'Student'" routerLink="/Management-Articles">Articles</a></li>
+                  <li><a ngbDropdownItem class="dropdown-item" *ngIf="this.role === 'Admin'" routerLink="/Admin-Account">Account</a></li>
+                  <li><a ngbDropdownItem class="dropdown-item" *ngIf="this.role === 'Admin'" routerLink="/Management-AcademicYear">Academic Years</a></li>
+                  <li><a ngbDropdownItem class="dropdown-item" *ngIf="this.role === 'Manager'" routerLink="/Management-Faculty">Faculties</a></li>
+                  <li><a ngbDropdownItem class="dropdown-item" *ngIf="this.role === 'Manager'" routerLink="/View-PublishedArticles">Article Publication</a></li>
+                  <!-- <li><a ngbDropdownItem class="dropdown-item" routerLink="/View-Comment">Comment</a></li> -->
+                  <!-- <li><a ngbDropdownItem class="dropdown-item"  routerLink="/View-Pub">Publishcation</a></li> -->
+                </ul>
+              </li>
+
+              <!-- Statistic -->
+              <li *ngIf="this.role === 'Guest' || this.role === 'Admin' || this.role === 'Manager' || this.role === 'Coordinator'" ngbDropdown class="nav-item dropdown">
+                <a ngbDropdownToggle class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                Statistic
+                </a>
+                <ul ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: rgb(67 0 86);">
+                  <!-- Admin -->
+                  <li><a ngbDropdownItem class="dropdown-item" *ngIf="this.role === 'Admin'" routerLink="/Admin-StatisticActiveTime">Active Time</a></li>
+                  <li><a ngbDropdownItem class="dropdown-item" *ngIf="this.role === 'Admin'" routerLink="/Admin-Statistic">Faculty-Wide</a></li>
+                  <li><a ngbDropdownItem class="dropdown-item" *ngIf="this.role === 'Admin'" routerLink="/Admin-StatisticPageBrowser">Page, Browser, and Role</a></li>
+
+
+                  <!-- Coordinator -->
+                  <li><a ngbDropdownItem class="dropdown-item" *ngIf="this.role === 'Coordinator'" routerLink="/View-CoordinatorStatistic">Faculty</a></li>
+
+                  <!-- Guest -->
+                  <li><a ngbDropdownItem class="dropdown-item" *ngIf="this.role === 'Guest'" routerLink="/Guest-Statistic">Faculty</a></li>
+
+                  <!-- Admin and Manager -->
+                  <li><a ngbDropdownItem class="dropdown-item" *ngIf="this.role === 'Manager'" routerLink="/View-StatisticApproveReject">Approval/Reject Rate</a></li>
+                  <li><a ngbDropdownItem class="dropdown-item" *ngIf="this.role === 'Manager'" routerLink="/View-ManagerBeforeClosing">Before Closing</a></li>
+                  <li><a ngbDropdownItem class="dropdown-item" *ngIf="this.role === 'Manager'" routerLink="/View-ManagerAfterClosing">After Closing</a></li>
+
+                </ul>
+              </li>
+
+            </ul>
+
+
+            <form class="d-flex" id="search">
+              <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
+              <!-- <button style="margin-top: 18px;"  class="btn btn-outline-success" type="submit">Search</button> -->
+            </form>
+          </div>
+        </div>
+      </nav>
+    <!-- navbar -->
+  </main>

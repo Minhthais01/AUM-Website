@@ -1,0 +1,84 @@
+.pagination{
+    display: flex;
+    justify-content: space-around;
+  }
+#img{
+    height: 250px;
+}
+
+/* Button */
+.div-button{
+    display: grid;
+    margin-bottom: 10px;
+}
+
+#select-option{
+    width: 260px;
+    margin-left: 5x;
+    margin-bottom: 10px;
+}
+
+.download-button{
+    margin-bottom: 10px;
+    text-decoration: none;
+    text-align: center;
+    width: 260px;
+    border: 1px solid red !important;
+    padding: 3px 5px 3px 5px;
+}
+
+#btn-readMore{
+    border-color: #ff014fff;
+    color: #ff014fff;
+}
+
+#btn-readMore:hover{
+    border-color: #ff014fff;
+    color: rgb(255, 255, 255);
+    background-color: #ff014fff;
+}
+
+.content{
+    height: 100px;
+    overflow: hidden; 
+    /* text-overflow: ellipsis; */
+    /* white-space: nowrap;  */
+}
+
+#card-article{
+    height: 270px;
+}
+
+.title{
+    height: 76.79px;
+    overflow: auto; 
+}
+
+.title::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  /* Thiết lập màu sắc của thanh cuộn */
+  .title::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Màu nền của thanh cuộn */
+  }
+  
+  /* Thiết lập màu sắc cho phần trên và dưới của thanh cuộn */
+  .title::-webkit-scrollbar-thumb {
+    background: #888; /* Màu của phần trên và dưới của thanh cuộn */
+  }
+  
+  /* Thiết lập màu sắc khi di chuột qua thanh cuộn */
+  .title::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Màu của phần khi di chuột qua */
+  }
+
+@media (max-width: 286px) {
+    #select-option{
+        width: 100%;
+    }
+    
+    .download-button{
+        width: 100%;
+    }
+  }

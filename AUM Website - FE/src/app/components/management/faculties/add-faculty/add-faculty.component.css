@@ -1,0 +1,27 @@
+main{
+    background-color:#f2f6fc;
+    color:#69707a;
+    }
+
+    #btn_Add{
+        background-color: #ff014fff;
+        border: #ff014fff;
+        width: 62.58px;
+      }
+      
+      #btn_Add:hover{
+        background-color: rgb(255, 101, 148);
+        border: rgb(255, 101, 148);
+      }
+
+    #btn_Back{
+        margin-right: 5px;
+        background-color: #69707a;
+        border: #69707a;
+      }
+      
+      #btn_Back:hover{
+        margin-right: 5px;
+        background-color: #b3c3da;
+        border: #b3c3da;
+      }

@@ -1,0 +1,58 @@
+<main id="main-main">
+  <div class="div-main">
+
+ 
+
+  <!-- <script src="assets/JavaScripts/chart.js"></script> -->
+  <div class="container">
+      <form [formGroup]="loginForm">
+        <div class="title">Login</div>
+
+        <div class="input-box underline">
+          <input class="fill" formControlName="username" type="text" placeholder="Username" required />
+          <div class="underline"></div>
+        </div>
+        <small *ngIf="loginForm.controls['username'].dirty && loginForm.hasError('required', 'username')" class="text-danger">*Username is required</small>
+
+        <div style="display: flex;" class="input-box underline">
+          <input class="fill" formControlName="password" placeholder="Password" type="{{type}}" required />
+          <span (click)="hideShowPass()" class="fa {{eyeIcon}}" style="margin-top: 21px; margin-right: 10px;"></span>
+          <div class="underline"></div>
+        </div>
+        <small *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('required', 'password')" class="text-danger">*Password is required</small>
+
+        <div class="input-box button">
+          <input type="submit" name="" value="Login" (click)="onLogin()"/>
+        </div>
+      </form>
+      <div class="option">You forget password ? <a  style="text-decoration: underline; color: #2f7ffd; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Forget Password</a></div>
+    </div>
+
+</div>
+</main>
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered mx-auto" style="width: 370px;" role="document">
+    <div class="modal-content mx-auto" >
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Send Email</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span id="btn-close" aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="input-field">
+          <span class="fa fa-envelope" style="font-size: 22px;"></span>
+          <input [(ngModel)]="resetPasswordEmail" (ngModelChange)="checkValidEmail($event)" class="input-email" type="text" placeholder="Email">
+        </div>
+        <small id="error_message" *ngIf="!resetPasswordEmail" class="text-danger">*Email is required*</small>
+        <small id="error_message" *ngIf="!isValidEmail && resetPasswordEmail" class="text-danger">*Email is invalid*</small>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="btn-Save" (keyup.enter)="confirmToSend()" (click)="confirmToSend()">Send</button>
+      </div>
+
+    </div>
+  </div>
